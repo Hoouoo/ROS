@@ -1,0 +1,70 @@
+<?xml version="1.0"?> 
+<sdf version="1.5">
+
+      <model name="blocking_bar">
+
+      <link name="blocking_bar_bottom">
+    	<pose>0 0 0 0 0 0</pose>
+    	<collision name="blocking_bar_bottom_collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+    	</collision>
+    	<visual name="blocking_bar_bottom_visual">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+    	</visual>
+      </link>
+      <link name="blocking_bar_top">
+    	<pose>-1.5 0.0334 0.2 0 0 0</pose>
+    	<collision name="blocking_bar_top_collision">
+          <geometry>
+            <box>
+              <size>3.0 0.02 0.15</size>
+            </box>
+          </geometry>
+    	</collision>
+    	<visual name="blocking_bar_top_visual">
+          <geometry>
+            <box>
+              <size>3.0 0.02 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>blocking</name>
+              <uri>model://blocking_bar/materials/blocking.material</uri>
+            </script>
+          </material>
+    	</visual>
+      </link>
+      <joint name="blocking_bar_fixed" type="fixed">
+    	<pose>0 0 0.05 0 0 0</pose>
+    	<parent>world</parent>
+    	<child>blocking_bar_bottom</child>
+    	<axis>
+          <xyz>0 0 0</xyz>
+    	</axis>
+      </joint>
+      <joint name="blocking_bar_joint" type="revolute">
+    	<parent>blocking_bar_bottom</parent>
+    	<child>blocking_bar_top</child>
+    	<pose>1.5 0 0 0 0 0</pose>
+    	<axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+          </limit>
+    	</axis>
+      </joint>
+      <plugin name="blockingbar" filename="libblocking.so"/>
+    </model>
+
+</sdf>
+

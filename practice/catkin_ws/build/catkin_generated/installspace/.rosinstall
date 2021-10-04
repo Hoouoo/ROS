@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/rosuser/practice/catkin_ws/install/setup.sh

@@ -1,0 +1,8 @@
+prefix=/home/rosuser/practice/catkin_ws/install
+
+Name: deu_ros_pkg
+Description: Description of deu_ros_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
