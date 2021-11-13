@@ -1,0 +1,8 @@
+prefix=/home/rosuser/practice/catkin_ws/install
+
+Name: deu_car
+Description: Description of deu_car
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

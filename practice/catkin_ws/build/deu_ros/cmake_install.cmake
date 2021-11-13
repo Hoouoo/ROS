@@ -42,6 +42,26 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/deu_ros/srv" TYPE FILE FILES "/home/rosuser/practice/catkin_ws/src/deu_ros/srv/WordCount.srv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/deu_ros/action" TYPE FILE FILES "/home/rosuser/practice/catkin_ws/src/deu_ros/action/Timer.action")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/deu_ros/msg" TYPE FILE FILES
+    "/home/rosuser/practice/catkin_ws/devel/share/deu_ros/msg/TimerAction.msg"
+    "/home/rosuser/practice/catkin_ws/devel/share/deu_ros/msg/TimerActionGoal.msg"
+    "/home/rosuser/practice/catkin_ws/devel/share/deu_ros/msg/TimerActionResult.msg"
+    "/home/rosuser/practice/catkin_ws/devel/share/deu_ros/msg/TimerActionFeedback.msg"
+    "/home/rosuser/practice/catkin_ws/devel/share/deu_ros/msg/TimerGoal.msg"
+    "/home/rosuser/practice/catkin_ws/devel/share/deu_ros/msg/TimerResult.msg"
+    "/home/rosuser/practice/catkin_ws/devel/share/deu_ros/msg/TimerFeedback.msg"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/deu_ros/cmake" TYPE FILE FILES "/home/rosuser/practice/catkin_ws/build/deu_ros/catkin_generated/installspace/deu_ros-msg-paths.cmake")
 endif()
 
