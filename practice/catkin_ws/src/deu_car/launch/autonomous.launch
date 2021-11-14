@@ -1,0 +1,5 @@
+<launch>
+    <node name="blocking_bar" pkg="deu_car" type="blocking_bar.py"/>
+    <node name="stop_line" pkg="deu_car" type="detect_stop_line.py"/>
+  
+</launch>

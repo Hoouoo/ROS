@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+
+
+  <model name="traffic_light">
+    <static>true</static>
+    <link name="traffic_downer_bar">
+      <pose>0 0 0.15 0 0 0</pose>
+      <collision name="traffic_downer_bar_collision">
+	<geometry>
+	  <cylinder>
+	    <radius>0.05</radius>
+	    <length>0.3</length>
+	  </cylinder>
+	</geometry>
+      </collision>
+      <visual name="traffic_downer_bar_visual">
+	<geometry>
+	  <cylinder>
+	    <radius>0.05</radius>
+	    <length>0.3</length>
+	  </cylinder>
+	</geometry>
+      </visual>
+    </link>
+
+    <link name="traffic_upper_bar">
+      <pose>0 0 0.8 0 0 0</pose>
+      <collision name="traffic_upper_bar_collision">
+	<geometry>
+	  <box>
+	    <size>0.3 0.3 1.0</size>
+	  </box>
+	</geometry>
+      </collision>
+      <visual name="traffic_upper_bar_visual">
+	<geometry>
+	  <box>
+	    <size>0.3 0.3 1.0</size>
+	  </box>
+	</geometry>
+      </visual>
+    </link>
+
+    <!-- Define Pane Start -->
+    <link name="red_pane">
+      <pose>0.175 0 1.15 0 1.57 0</pose>
+      <collision name="traffic_light_red_collision">
+	<geometry>
+	  <cylinder>
+	    <radius>.1</radius>
+	    <length>.05</length>
+	  </cylinder>
+	</geometry>
+      </collision>
+      <visual name="traffic_light_red_visual">
+	<geometry>
+	  <cylinder>
+	    <radius>.1</radius>
+	    <length>.05</length>
+	  </cylinder>
+	</geometry>
+      </visual>
+      <light type="spot" name="red">
+	<pose>0 0 .6 0 0 0</pose>
+	<diffuse>1 0 0 1</diffuse>
+	<specular>1 1 1 1</specular>
+	<attenuation>
+	  <range>0.6</range>
+	  <linear>0.01</linear>
+	  <constant>0.2</constant>
+	  <quadratic>0.0</quadratic>
+	</attenuation>
+	<direction>0 0 -1</direction>
+	<spot>
+	  <inner_angle>0.1</inner_angle>
+	  <outer_angle>0.5</outer_angle>
+	  <falloff>1.2</falloff>
+	</spot>
+	<cast_shadows>false</cast_shadows>
+      </light>
+    </link>
+
+    <link name="yellow_pane">
+      <pose>0.175 0 0.9 0 1.57 0</pose>
+      <collision name="traffic_light_yellow_collision">
+	<geometry>
+	  <cylinder>
+	    <radius>.1</radius>
+	    <length>.05</length>
+	  </cylinder>
+	</geometry>
+      </collision>
+      <visual name="traffic_light_yellow_visual">
+	<geometry>
+	  <cylinder>
+	    <radius>.1</radius>
+	    <length>.05</length>
+	  </cylinder>
+	</geometry>
+      </visual>
+      <!-- Yellow Spot Light -->
+      <light type="spot" name="yellow">
+	<pose>0 0 .6 0 0 0</pose>
+	<diffuse>1 1 0 1</diffuse>
+	<specular>.2 .2 .2 1</specular>
+	<attenuation>
+	  <range>0.6</range>
+	  <linear>0.01</linear>
+	  <constant>0.2</constant>
+	  <quadratic>0.0</quadratic>
+	</attenuation>
+	<direction>0 0 -1</direction>
+	<spot>
+	  <inner_angle>0.1</inner_angle>
+	  <outer_angle>0.5</outer_angle>
+	  <falloff>1.2</falloff>
+	</spot>
+	<cast_shadows>false</cast_shadows>
+      </light>
+
+    </link>
+    <link name="green_pane">
+      <pose>0.175 0 .65 0 1.57 0</pose>
+      <collision name="traffic_light_green_collision">
+	<geometry>
+	  <cylinder>
+	    <radius>.1</radius>
+	    <length>.05</length>
+	  </cylinder>
+	</geometry>
+      </collision>
+      <visual name="traffic_light_green_visual">
+	<geometry>
+	  <cylinder>
+	    <radius>.1</radius>
+	    <length>.05</length>
+	  </cylinder>
+	</geometry>
+      </visual>
+      <!-- Green Spot Light -->
+      <light type="spot" name="green">
+	<pose>0 0 .6 0 0 0</pose>
+	<diffuse>0 1 0 1</diffuse>
+	<specular>.2 .2 .2 1</specular>
+	<attenuation>
+	  <range>0.6</range>
+	  <linear>0.01</linear>
+	  <constant>0.2</constant>
+	  <quadratic>0.0</quadratic>
+	</attenuation>
+	<direction>0 0 -1</direction>
+	<spot>
+	  <inner_angle>0.1</inner_angle>
+	  <outer_angle>0.5</outer_angle>
+	  <falloff>1.2</falloff>
+	</spot>
+	<cast_shadows>false</cast_shadows>
+      </light>
+    </link>
+    <link name="arrow_pane">
+      <pose>0.175 0 0.4 0 1.57 0</pose>
+      <collision name="traffic_light_arrow_collision">
+	<geometry>
+	  <cylinder>
+	    <radius>.1</radius>
+	    <length>.05</length>
+	  </cylinder>
+	</geometry>
+      </collision>
+      <visual name="traffic_light_arrow_visual">
+	<geometry>
+	  <cylinder>
+	    <radius>.1</radius>
+	    <length>.05</length>
+	  </cylinder>
+	</geometry>
+      </visual>
+      <!-- Arrow Spot Light -->
+      <light type="spot" name="arrow">
+	<pose>0 0 .6 0 0 0</pose>
+	<diffuse>0 1 0 1</diffuse>
+	<specular>.2 .2 .2 1</specular>
+	<attenuation>
+	  <range>0.6</range>
+	  <linear>0.01</linear>
+	  <constant>0.2</constant>
+	  <quadratic>0.0</quadratic>
+	</attenuation>
+	<direction>0 0 -1</direction>
+	<spot>
+	  <inner_angle>0.1</inner_angle>
+	  <outer_angle>0.5</outer_angle>
+	  <falloff>1.2</falloff>
+	</spot>
+	<cast_shadows>false</cast_shadows>
+      </light>
+    </link>
+    <!-- Define Pane End -->
+
+    <!-- Define Joint Start -->
+
+
+    <joint name="traffic_bar_upper_joint" type="fixed">
+      <pose>0 0 0 0 0 0</pose>
+      <parent>traffic_downer_bar</parent>
+      <child>traffic_upper_bar</child>
+      <axis>
+	<xyz>0 0 0</xyz>
+      </axis>
+    </joint>
+    <joint name="traffic_bar_red_pane_joint" type="fixed">
+      <pose>0 0 0.2 0 0 0</pose>
+      <parent>traffic_upper_bar</parent>
+      <child>red_pane</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+	<xyz>0 0 0</xyz>
+	<limit>
+	  <lower>0</lower>
+	  <upper>1.57</upper>
+	</limit>
+      </axis>
+    </joint>
+    <joint name="traffic_bar_yellow_pane_joint" type="fixed">
+      <pose>0 0 0.2 0 0 0</pose>
+      <parent>traffic_upper_bar</parent>
+      <child>yellow_pane</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+	<xyz>0 0 0</xyz>
+	<limit>
+	  <lower>0</lower>
+	  <upper>1.57</upper>
+	</limit>
+      </axis>
+    </joint>
+    <joint name="traffic_bar_green_pane_joint" type="fixed">
+      <pose>0 0 0.2 0 0 0</pose>
+      <parent>traffic_upper_bar</parent>
+      <child>green_pane</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+	<xyz>0 0 0</xyz>
+	<limit>
+	  <lower>0</lower>
+	  <upper>1.57</upper>
+	</limit>
+      </axis>
+    </joint>
+    <joint name="traffic_bar_arrow_pane_joint" type="fixed">
+      <pose>0 0 0.2 0 0 0</pose>
+      <parent>traffic_upper_bar</parent>
+      <child>arrow_pane</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+	<xyz>0 0 0</xyz>
+	<limit>
+	  <lower>0</lower>
+	  <upper>1.57</upper>
+	</limit>
+      </axis>
+    </joint>
+    <plugin name='light_control' filename='libFlashLightPlugin.so'>
+      <light>
+	<light>red_pane/red</light>
+	<duration>0.5</duration>
+	<interval>0.5</interval>
+      </light>
+    </plugin>
+  </model>
+</sdf>
