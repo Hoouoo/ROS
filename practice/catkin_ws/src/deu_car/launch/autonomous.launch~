@@ -1,0 +1,4 @@
+<launch>
+    <node name="blocking_bar" pkg="deu_car" type="blocking_bar.py"/>
+  
+</launch>
