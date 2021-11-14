@@ -30,16 +30,16 @@ class Blocking_Bar():
         lower_red = numpy.array([0, 0, 90])
         upper_red = numpy.array([5, 5, 110])
 
-        rmask = cv2.inRange(hsv, lower_red, upper_red)
+        mask = cv2.inRange(hsv, lower_red, upper_red)
 
         h, w, d = image.shape
-        search_top = 3 * h / 7
+        search_top = 2 * h / 7
         search_bot = 3 * h / 7 + 20
-        rmask[0:search_top, 0:w] = 0
-        rmask[search_bot:h, 0:w] = 0
-        rmask[0:h, 0:120] = 0
-        rmask[0:h, 640:w] = 0
-        _, bar_check, _ = cv2.findContours(rmask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        mask[0:search_top, 0:w] = 0
+        mask[search_bot:h, 0:w] = 0
+        mask[0:h, 0:120] = 0
+        mask[0:h, 640:w] = 0
+        _, bar_check, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
         if len(bar_check) > 1:
             self.blocking_toggle = 'OFF'
@@ -49,6 +49,7 @@ class Blocking_Bar():
         else:
             self.blocking_toggle = 'ON'
             self.blocking_toggle_pub.publish(self.blocking_toggle)
+
 
 if __name__ == "__main__":
     rospy.init_node('blocking_bar')

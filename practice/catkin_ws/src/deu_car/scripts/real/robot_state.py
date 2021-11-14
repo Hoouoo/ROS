@@ -9,6 +9,7 @@ from smach import State
 from line_detector import Detector
 from base_move import BaseMove
 from line_tracer import LineTracer
+from detect_stop_line import Stop_Line
 
 blocking_toggle = False
 stop_line_toggle = False
@@ -44,7 +45,7 @@ class Detect_StartLine(State):
             self.twist.angular.z = 0.0
             self.cmd_vel_pub.publish(self.twist)
 
-            if self.change_time + 3 < time.time():
+            if self.change_time + 2.5 < time.time():
                 self.twist.linear.x = 0.0
                 self.twist.angular.z = 0.0
                 self.cmd_vel_pub.publish(self.twist)
@@ -78,15 +79,27 @@ class Autonomous_Drive(State):
         State.__init__(self, outcomes=['success'])
         global stop_line_toggle
         self.change_time = time.time()
+        self.time = rospy.Time.now()
+        self.check = 0
         # self.cmd_vel_pub = rospy.Publisher('cmd_vel_mux/input/teleop', Twist, queue_size=1)
         # self.twist = Twist()
 
     def execute(self, userdata):
+        global line_follower
         rate = rospy.Rate(20)
-        line_tracer = LineTracer()
+        line_follower = LineTracer()
+        stop_line = Stop_Line()
         while True:
+            if stop_line_toggle == True:
+                if self.time + rospy.Duration(5) < rospy.Time.now():
+                    if self.check == 1:
+                        self.check = 0
+                    self.check = 1
+                    rospy.sleep(3)
+                    self.time = rospy.Time.now()
+
             if loop == True:
                 return 'success'
-            line_tracer.autonomous_drive(True)
+            line_follower.autonomous_drive(True)
             rospy.loginfo("Autonomous_Drive")
             rate.sleep()
