@@ -13,8 +13,8 @@ class AutonomousDriving:
     def autonomos_drive(self):
         rospy.init_node('drive')
         with self.driving_machine:
-            StateMachine.add('START', Detect_StartLine(), transitions={'success': 'DRIVELINE'})
-            #StateMachine.add('BLOCKINGBAR', Detect_BlockingBar(), transitions={'success': 'DRIVELINE'})
+            StateMachine.add('START', Detect_StartLine(), transitions={'success': 'BLOCKINGBAR'})
+            StateMachine.add('BLOCKINGBAR', Detect_BlockingBar(), transitions={'success': 'DRIVELINE'})
             StateMachine.add('DRIVELINE', Autonomous_Drive(), transitions={'success': 'success'})
 
         self.driving_machine.execute()
