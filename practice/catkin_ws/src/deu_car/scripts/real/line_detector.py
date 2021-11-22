@@ -25,7 +25,7 @@ class Detector:
         image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         # image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
         hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-        v = cv2.split(hsv)[2]  # RED
+        v = cv2.split(hsv)[2]  # GRAY
         mask = cv2.inRange(v, 217, 219)
         #    l_mask = cv2.inRange(v, 217, 219)
         #    r_mask = cv2.inRange(v, 217, 219)

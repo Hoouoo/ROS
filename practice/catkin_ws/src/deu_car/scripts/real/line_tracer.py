@@ -28,18 +28,18 @@ class LineTracer:
                 print(">> r_ len(line) = ", self.right_line.contour)
                 print("devide = ", (self.left_line.center + self.right_line.center) / 2)
                 if self.left_line.center == 0 and self.right_line.contour == 0:
-                    self.robot_controller.set_velocity(0.2)
+                    self.robot_controller.set_velocity(0.3)
                     #  if abs(angle) >= 0.5:
                     # self.robot_controller.set_velocity(0.35)
                     self.robot_controller.go_forward()
-                elif self.left_line.contour - self.right_line.contour > 20:
-                    self.robot_controller.set_velocity(0.5)
+                elif self.left_line.contour - self.right_line.contour > 30:
+                    self.robot_controller.set_velocity(0.57)
                     # self.err = (self.right_line.center)/2 - 320
                     self.robot_controller.set_angle(-float(50) / 100)
                     self.robot_controller.go_forward()
 
-                elif self.right_line.contour - self.left_line.contour > 20  :
-                    self.robot_controller.set_velocity(0.5)
+                elif self.right_line.contour - self.left_line.contour > 30  :
+                    self.robot_controller.set_velocity(0.57)
                     # self.err = (self.right_line.center)/2 - 320
                     self.robot_controller.set_angle(float(50) / 100)
                     self.robot_controller.go_forward()
@@ -47,7 +47,7 @@ class LineTracer:
                  # self.robot_controller.set_angle(float(80) / 100)
                  # self.robot_controller.go_forward()
                 else:
-                    self.err = (self.right_line.center + self.left_line.center) / 2 - 320
+                    self.err = (self.right_line.center + self.left_line.center) / 2 - 305
                     print self.err
                     angle = -float(self.err) / 100
                     print 'angle = ', angle
