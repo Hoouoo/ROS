@@ -38,19 +38,26 @@ class Stop_Line():
         mask[0:h, w / 3 * 2 :  w] = 0
         ret, thr = cv2.threshold(mask, 127, 255, 0)
 
+        M = cv2.moments(mask)
+        if M['m00'] > 0:
+            cx = int(M['m10'] / M['m00'])
+        self.center = cx
+
         _,contours,_ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         if len(contours) > 0:
             cnt = contours[len(contours) - 1]
             self.area = max(list(map(lambda x: cv2.contourArea(x), contours)))
             # rospy.loginfo(self.area)
 
-            if self.area >= 8300: #origin 8300
+            if self.area >= 8100: #origin 8300
                 self.stop_line_toggle = 'STOP_LINE'
                 self.stop_line_pub.publish(self.stop_line_toggle)
+                # self.image_sub.unregister()
             else:
                 # rospy.loginfo(self.area)
                 self.stop_line_toggle = 'NO_STOP_LINE'
                 self.stop_line_pub.publish(self.stop_line_toggle)
+
         #
         # cv2.imshow('window', mask)
         # cv2.waitKey(3)
