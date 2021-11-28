@@ -33,13 +33,21 @@ class Detector:
 #    search_bot = search_top + 20
     
     if self.cam_loc == 'left':
-      mask[0:340, 0:w] = 0
-      mask[340:440, w - 320: w] = 0
+#      mask[0:340, 0:w] = 0
+#      mask[340:440, w - 320: w] = 0
+#      mask[440:h, 0:w] = 0
+      mask[0:320, 0:w] = 0
+      mask[320:440, w/3: w] = 0
       mask[440:h, 0:w] = 0
-    else:
-      mask[0:340, 0:w] = 0
-      mask[340:440, 0 : 320] = 0
-      mask[440:h, 0:w] = 0
+      
+    elif self.cam_loc == 'right':
+      mask[0:150, 0:w] = 0
+      mask[150:440, 0: w/2] = 0
+      mask[440:h, 0:w] = 0      
+#    else:
+#      mask[0:340, 0:w] = 0
+#      mask[340:440, 0 : 320] = 0
+#      mask[440:h, 0:w] = 0
       
     corners = cv2.goodFeaturesToTrack(mask, 100, 0.01, 10)
     if corners is not None:
