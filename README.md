@@ -1,8 +1,8 @@
-### 개요
+## 개요
 3학년 2학기 로봇 프로그래밍(ROS) 도로주행시험장 자율주행 프로젝트입니다.
 
-### 비전
-![image](https://user-images.githubusercontent.com/56144682/148673097-02f713e1-4c48-4356-9e02-5e1d9a269d66.png)
+## 비전
+![image](https://user-images.githubusercontent.com/56144682/148673097-02f713e1-4c48-4356-9e02-5e1d9a269d66.png)  
 우리나라는 2011년부터 지금까지 꾸준히 차 보급률이 높아지면서 2020년에는 2,437만 대의 차를 보유하고 있다.   이처럼 차를 보유하고 있는 사람들이 많아지면서 도로교통사고에 대한 피해도 꾸준하게 발생하고 있다.  
    
 교통 사고분석시스템에 따르면 2020년 교통사고는 209,654건으로 대형사고 사망자는 전년 대비 11.4%나 증가할 만큼 사고가 자주 일어나고 있다. 또한, 이를 처리하기 위해 사용되는 도로교통 비용이 약 25조 9,000억에 달할 만큼 어마어마한 지출이 발생한다. 이러한 사고는 운전자의 안전운전 불이행이 전체 교통사고의 61.3%로 절반 이상을 차지하고 있을 만큼 운전자의 운전 습관이 사고로 직결되는 경우가 많다.  
@@ -11,7 +11,7 @@
    
 이러한 산업이 발전하면서 관련한 로봇 소프트웨어 산업이 폭발적으로 성장하고 있음에 따라 우리도 로봇 프로그래밍을 통해 로봇의 구동을 이해하고 실제 도로와 비슷한 환경에 맞춰 테스트하고 이해하는 것이 목적이다. 이전에 배웠던 디자인 패턴 활용하여 객체 지향적으로 설계하며 로봇의 자율주행과 도로 주행시험장에서 발생하는 다양한 문제들을 인식하고 해결하는 능력을 갖춘 로봇(터틀봇) 프로그램을 python과 gazebo 도구를 활용하여 개발한다.  
 
-### 요구사항 명세서
+## 요구사항 명세서
 1) 두 차선 중 지정한 차선(1, 2번)에 로봇을 위치시켜야 한다. 앞에 위치한 차단바가 올라가면 출발한다. 터틀봇의 최대 속도는 1m/sec을 초과해서는 안 된다.
 2) 정지선 앞에서 3초 간 정지해야 한 후 출발한다.
 3) 해당 사항 없음.
@@ -28,20 +28,20 @@
 13) 정지선 앞에 3초 간 정지 후, 우회전한다.
 14) (노란 색) 종료 정지선 앞에 정지한다. 
 
-### Turtle Bot Node 통신 구조
-![image](https://user-images.githubusercontent.com/56144682/148673324-784deaa3-c349-4cdc-9807-c371ed5ecc4f.png)
+## Turtle Bot Node 통신 구조
+![image](https://user-images.githubusercontent.com/56144682/148673324-784deaa3-c349-4cdc-9807-c371ed5ecc4f.png) 
 gazebo의 ‘camera’ 노드와 ‘LIDAR’ 노드와 깊이 카메라, 터틀봇의 기본 이동 요소를 담당하는 노드와 같이 기본적인 하드웨어 모듈 노드로부터 필요한 정보를 직접 생성한 토픽 노드를 통해 추출하였다. 해당 노드들로부터 수집한 정보는 최종적으로 ‘drive’ 노드로 전송되어 터틀봇을 최종 구동시킨다.  
 
-### 분석
-#### Blocking bar
+## 분석
+### Blocking bar
 **Usecase Diagram**  
-![image](https://user-images.githubusercontent.com/56144682/148673372-58bef1f5-0442-4faf-9b03-1197ef1bb529.png)
+![image](https://user-images.githubusercontent.com/56144682/148673372-58bef1f5-0442-4faf-9b03-1197ef1bb529.png)  
 
 **Sequence Diagram**  
-![image](https://user-images.githubusercontent.com/56144682/148673345-dd93bd5a-04cf-42d2-bc22-ef493648301e.png)
-
+![image](https://user-images.githubusercontent.com/56144682/148673345-dd93bd5a-04cf-42d2-bc22-ef493648301e.png)  
+ 
 **Domain Model**  
-![image](https://user-images.githubusercontent.com/56144682/148673393-c052f1a0-6cf1-4b69-8f11-f071a8cf3e68.png)
+![image](https://user-images.githubusercontent.com/56144682/148673393-c052f1a0-6cf1-4b69-8f11-f071a8cf3e68.png)  
 
 **구현**
-![image](https://user-images.githubusercontent.com/56144682/148673380-7e4dfd67-264a-4f30-ba94-c70396c38c5c.png)
+![image](https://user-images.githubusercontent.com/56144682/148673380-7e4dfd67-264a-4f30-ba94-c70396c38c5c.png)  
