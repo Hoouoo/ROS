@@ -14,10 +14,10 @@
 ## 주행영상
 
 #### Track 1
-[1차선_주행영상](https://youtu.be/bdb_rHeUrW8)
+[1차선_주행영상.YOUTUBE](https://youtu.be/bdb_rHeUrW8)
 
 #### Track 2
-[2차선_주행영상](https://youtu.be/48nuG1fZVoE)
+[2차선_주행영상.YOUTUBE](https://youtu.be/48nuG1fZVoE)
 
 ## 요구사항 명세서
 1) 두 차선 중 지정한 차선(1, 2번)에 로봇을 위치시켜야 한다. 앞에 위치한 차단바가 올라가면 출발한다. 터틀봇의 최대 속도는 1m/sec을 초과해서는 안 된다.
